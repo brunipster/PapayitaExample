@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.8.2)
+  - FloatRatingView (3.0)
+  - Kingfisher (5.7.0)
+  - PaginatedTableView (0.1.0)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - FloatRatingView
+  - Kingfisher
+  - PaginatedTableView
+  - SwiftyJSON
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - FloatRatingView
+    - Kingfisher
+    - PaginatedTableView
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  FloatRatingView: 0f7b45733124516ac6b8f535e5b5f4fa2e122180
+  Kingfisher: c7d211b54f1f30d8060aadab177d52b4349c825b
+  PaginatedTableView: 14025b52a9f88bb1e9a87f31765eae7986ffb192
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: 9c984d20c6d523582529ead81d1e1d47f65e3b69
+
+COCOAPODS: 1.7.3
