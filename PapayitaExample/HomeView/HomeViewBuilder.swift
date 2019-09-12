@@ -20,14 +20,14 @@ protocol HomeInteractorDelegate {
     
     var presenter: HomePresenterDelegate? {get set}
     
-    func getMovies(page: Int, response: @escaping () -> ())
+    func getMovies(page: Int, response: @escaping () -> Void)
 }
 
 protocol HomePresenterDelegate {
     var view: HomeViewDelegate? {get set}
     var interactor: HomeInteractorDelegate? {get set}
     
-    func updateView(page: Int, respose: @escaping  () ->())
+    func updateView(page: Int, respose: @escaping  () -> ())
     
     func fetchFillTableMovies(movies: [Movie])
 }

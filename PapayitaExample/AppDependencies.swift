@@ -12,8 +12,8 @@ import UIKit
 class AppDependencies {
     
     static func assembleModule() -> UIViewController? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
         
         let presenter = HomePresenter()
@@ -21,15 +21,11 @@ class AppDependencies {
         let router = HomeRoute()
         
         view?.presenter = presenter
-        
         interactor.presenter = presenter
-        
         presenter.view = view
         presenter.interactor = interactor
         presenter.route = router
-        
         router.homeView = view
-        
         return view
     }
 }

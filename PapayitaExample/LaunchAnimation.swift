@@ -9,22 +9,22 @@
 import Foundation
 import UIKit
 
-class LaunchAnimation: UIView{
+class LaunchAnimation: UIView {
     
     private var _labelFont: UIFont? = UIFont.systemFont(ofSize: 80)
     private var _title: String? = "ANIMATION"
     private var _titleColor: UIColor? = UIColor(white: 2, alpha: 1)
     private var _backgroundColor: UIColor? = .black
-    private var _colorsGradients: [CGColor] = [UIColor.clear.cgColor,UIColor.white.cgColor,UIColor.white.cgColor]
-    private var _duration:CFTimeInterval = 3
-    private var _repeat : Bool = true
+    private var _colorsGradients: [CGColor] = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+    private var _duration: CFTimeInterval = 3
+    private var _repeat: Bool = true
     
     private let label = UILabel()
     private let gradientLabel = CAGradientLayer()
     private let animation = CABasicAnimation(keyPath: "transform.translation.x")
     
     @objc open var isRepeat: Bool {
-        get{return _repeat}
+        get{ return _repeat }
         set{
             _repeat = newValue
             setNeedsDisplay()
@@ -42,7 +42,7 @@ class LaunchAnimation: UIView{
     }
     
     @objc open var colorGradient: [CGColor] {
-        get{return _colorsGradients}
+        get{ return _colorsGradients }
         set{
             _colorsGradients = newValue
             setNeedsDisplay()
@@ -59,18 +59,14 @@ class LaunchAnimation: UIView{
     
     @objc open var titleColor: UIColor?{
         get{return _titleColor}
-        set{
-            _titleColor = newValue
-            setNeedsDisplay()
-        }
+        set{ _titleColor = newValue
+            setNeedsDisplay() }
     }
     
-    @objc open var title:String? {
+    @objc open var title: String? {
         get{ return _title }
-        set{
-            _title = newValue
-            setNeedsDisplay()
-        }
+        set{ _title = newValue
+            setNeedsDisplay() }
     }
     
     @objc open var labelFont: UIFont?
@@ -92,8 +88,7 @@ class LaunchAnimation: UIView{
         super.init(coder: aDecoder)
         initialize()
     }
-    
-    
+
 }
 
 private extension LaunchAnimation{

@@ -64,12 +64,12 @@ extension HomeViewController:PaginatedTableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeliculaCell", for: indexPath) as! PeliculaCell
         let item:Movie =  self.listMovies[indexPath.row]
         cell.lblTitulo.text = item.title
-        cell.lblDirector.text = item.original_title
-        let url = URL(string: "http://image.tmdb.org/t/p/w500\(item.poster_path)")
+        cell.lblDirector.text = item.originalTitle
+        let url = URL(string: "http://image.tmdb.org/t/p/w500\(item.posterPath)")
         cell.imgView.kf.setImage(with: url, placeholder: UIImage(named: "notFound"), options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
         })
         cell.vwRating.rating = item.popularity*0.1/5
-        cell.lblDirector.text = Array(item.genre_ids).map({"\($0)"}).joined(separator:" , ")
+        cell.lblDirector.text = Array(item.genres).map({"\($0)"}).joined(separator:" , ")
         
         return cell
     }

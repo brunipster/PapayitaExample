@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias responseClosure = (JSON) -> Void
+typealias ResponseClosure = (JSON) -> Void
 
 class RESTApi {
     
@@ -23,14 +23,14 @@ class RESTApi {
         apiKey = Utilities().getApiKey()
     }
     
-    public func getMovies(category: String, page: Int, responseREST: responseClosure?) {
+    public func getMovies(category: String, page: Int, responseREST: ResponseClosure?) {
         let parameters = [
             "api_key": apiKey,
             "page": String(page)
         ]
         
         Alamofire.request(baseUrl + "/" + category, parameters: parameters)
-            .responseJSON{response in
+            .responseJSON{ response in
                 if let json = response.result.value {
                     let respuesta = JSON(json)
                     responseREST!(respuesta)

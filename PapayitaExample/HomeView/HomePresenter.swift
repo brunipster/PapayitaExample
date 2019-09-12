@@ -16,7 +16,7 @@ class HomePresenter: HomePresenterDelegate{
     
     var route: HomeRouteDelegate?
     
-    func updateView(page: Int, respose: @escaping () -> ()) {
+    func updateView(page: Int, respose: @escaping () -> Void) {
         interactor?.getMovies(page: page, response: respose)
     }
     

@@ -12,20 +12,20 @@ import SwiftyJSON
 struct Movie{
     var id: Int
     var title: String
-    var original_title: String
-    var poster_path: String
+    var originalTitle: String
+    var posterPath: String
     var overview: String
     var popularity: Double
-    var genre_ids: [Int]
+    var genres: [Int]
     
     init(json: JSON) {
         self.title = json["title"].stringValue
-        self.original_title = json["original_title"].stringValue
-        self.poster_path = json["poster_path"].stringValue
+        self.originalTitle = json["original_title"].stringValue
+        self.posterPath = json["poster_path"].stringValue
         self.overview = json["overview"].stringValue
         self.popularity = json["popularity"].doubleValue
         self.id = json["id"].intValue
-        self.genre_ids = json["genre_ids"].arrayValue.map({(json) -> Int in
+        self.genres = json["genre_ids"].arrayValue.map({(json) -> Int in
             return json.intValue
         })
     }
