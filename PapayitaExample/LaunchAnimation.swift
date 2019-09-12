@@ -25,58 +25,37 @@ class LaunchAnimation: UIView {
     
     @objc open var isRepeat: Bool {
         get{ return _repeat }
-        set{
-            _repeat = newValue
-            setNeedsDisplay()
-        }
+        set{ _repeat = newValue; setNeedsDisplay() }
     }
     
     @objc open var duration: CFTimeInterval {
-        get{
-            return _duration
-        }
-        set{
-            _duration = newValue
-            setNeedsDisplay()
-        }
+        get{ return _duration }
+        set{ _duration = newValue; setNeedsDisplay() }
     }
     
     @objc open var colorGradient: [CGColor] {
         get{ return _colorsGradients }
-        set{
-            _colorsGradients = newValue
-            setNeedsDisplay()
-        }
+        set{ _colorsGradients = newValue; setNeedsDisplay() }
     }
     
-    override var backgroundColor: UIColor?{
-        get{return _backgroundColor}
-        set{
-            _backgroundColor = newValue
-            setNeedsDisplay()
-        }
+    override var backgroundColor: UIColor? {
+        get{ return _backgroundColor }
+        set{ _backgroundColor = newValue; setNeedsDisplay() }
     }
     
-    @objc open var titleColor: UIColor?{
-        get{return _titleColor}
-        set{ _titleColor = newValue
-            setNeedsDisplay() }
+    @objc open var titleColor: UIColor? {
+        get{ return _titleColor }
+        set{ _titleColor = newValue; setNeedsDisplay() }
     }
     
     @objc open var title: String? {
         get{ return _title }
-        set{ _title = newValue
-            setNeedsDisplay() }
+        set{ _title = newValue; setNeedsDisplay() }
     }
     
-    @objc open var labelFont: UIFont?
-        {
+    @objc open var labelFont: UIFont? {
         get { return _labelFont }
-        set
-        {
-            _labelFont = newValue
-            setNeedsDisplay()
-        }
+        set{ _labelFont = newValue; setNeedsDisplay() }
     }
     
     override init(frame: CGRect) {
@@ -115,7 +94,7 @@ private extension LaunchAnimation{
         animation.toValue = -self.frame.width
         animation.fillMode = .forwards
         animation.isRemovedOnCompletion = false
-        if(_repeat){
+        if _repeat {
             animation.repeatCount = Float.infinity
         }
         

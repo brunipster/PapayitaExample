@@ -15,19 +15,13 @@ class PeliculaCell: UITableViewCell {
     @IBOutlet weak var vwRating: FloatRatingView!
     @IBOutlet weak var lblDirector: UILabel!
     @IBOutlet weak var lblTitulo: UILabel!
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-//        vwRating.delegate = self
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

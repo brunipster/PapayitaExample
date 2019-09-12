@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return navigationController
     }()
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = navigationController
         let homeViewBuilder = AppDependencies.assembleModule()
         self.navigationController.viewControllers = [homeViewBuilder!]
-        
         return true
     }
 

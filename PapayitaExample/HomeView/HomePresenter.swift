@@ -20,7 +20,7 @@ class HomePresenter: HomePresenterDelegate{
         interactor?.getMovies(page: page, response: respose)
     }
     
-    func fetchFillTableMovies(movies: [Movie]){
+    func fetchFillTableMovies(movies: [Movie]) {
         view?.reloadTableViewListMovie(movies)
     }
     

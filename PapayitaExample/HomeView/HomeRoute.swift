@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let HomeViewIdentifier = "HomeViewController"
+let homeViewIdentifier = "HomeViewController"
 
 class HomeRoute: HomeRouteDelegate {
     
@@ -18,7 +18,7 @@ class HomeRoute: HomeRouteDelegate {
     var presenter: HomePresenterDelegate = HomePresenter()
     
     func presentModule(fromView window: AnyObject) {
-        let view = HomeViewFromStoryboard()
+        let view = homeViewFromStoryboard()
         view.presenter = presenter
         presenter.view = view
         
@@ -27,15 +27,15 @@ class HomeRoute: HomeRouteDelegate {
     }
     
     func showHomeViewController() {
-//        
     }
     
-    func HomeViewFromStoryboard() -> HomeViewController {
+    func homeViewFromStoryboard() -> HomeViewController {
         let storyboard = mainStoryboard()
-        let viewController = storyboard.instantiateViewController(withIdentifier: HomeViewIdentifier) as! HomeViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: homeViewIdentifier)
+            as! HomeViewController
         return viewController
     }
-    
+
     func mainStoryboard() -> UIStoryboard {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard

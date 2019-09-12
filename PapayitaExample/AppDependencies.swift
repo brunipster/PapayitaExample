@@ -15,11 +15,11 @@ class AppDependencies {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
-        
+
         let presenter = HomePresenter()
         let interactor = HomeInteractor()
         let router = HomeRoute()
-        
+
         view?.presenter = presenter
         interactor.presenter = presenter
         presenter.view = view

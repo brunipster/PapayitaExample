@@ -10,25 +10,25 @@ import Foundation
 
 protocol HomeViewDelegate: class {
     var presenter: HomePresenterDelegate? {get set}
-    
+
     var page: Int {get set}
-    
+
     func reloadTableViewListMovie(_ moviesList: [Movie])
 }
 
-protocol HomeInteractorDelegate {
-    
+protocol HomeInteractorDelegate: class {
+
     var presenter: HomePresenterDelegate? {get set}
-    
+
     func getMovies(page: Int, response: @escaping () -> Void)
 }
 
-protocol HomePresenterDelegate {
+protocol HomePresenterDelegate: class {
     var view: HomeViewDelegate? {get set}
     var interactor: HomeInteractorDelegate? {get set}
-    
+
     func updateView(page: Int, respose: @escaping  () -> ())
-    
+
     func fetchFillTableMovies(movies: [Movie])
 }
 

@@ -10,15 +10,14 @@ import UIKit
 import Kingfisher
 import PaginatedTableView
 
-class HomeViewController: UIViewController, HomeViewDelegate{
+class HomeViewController: UIViewController, HomeViewDelegate {
     var page: Int = 0
-    
-    
+
     @IBOutlet weak var tablePeliculas: PaginatedTableView!
-    
+
     var listMovies = [Movie]()
     var presenter: HomePresenterDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib.init(nibName: "PeliculaCell", bundle: nil)
@@ -27,39 +26,39 @@ class HomeViewController: UIViewController, HomeViewDelegate{
         tablePeliculas.paginatedDelegate = self
         tablePeliculas.loadData(refresh: true)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    func configView(){
+
+    func configView() {
     }
-    
+
     func reloadTableViewListMovie(_ moviesList: [Movie]) {
         self.listMovies.append(contentsOf: moviesList)
     }
 }
 
-extension HomeViewController: PaginatedTableViewDataSource{
+extension HomeViewController: PaginatedTableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
 }
 
-extension HomeViewController:PaginatedTableViewDelegate{
+extension HomeViewController:PaginatedTableViewDelegate {
     func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
-        
+
         if pageNumber == 1 { self.listMovies = [Movie]() }
         presenter?.updateView(page: pageNumber, respose: ({
             onSuccess?(true)
         }))
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listMovies.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeliculaCell", for: indexPath) as! PeliculaCell
         let item:Movie =  self.listMovies[indexPath.row]
@@ -70,10 +69,10 @@ extension HomeViewController:PaginatedTableViewDelegate{
         })
         cell.vwRating.rating = item.popularity*0.1/5
         cell.lblDirector.text = Array(item.genres).map({"\($0)"}).joined(separator:" , ")
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
