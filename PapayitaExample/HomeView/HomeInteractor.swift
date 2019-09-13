@@ -9,12 +9,12 @@
 import Foundation
 
 class HomeInteractor: HomeInteractorDelegate {
-    
+
     var restApi = RESTApi()
-    
+
     var presenter: HomePresenterDelegate?
 
-    func getMovies(page: Int, response: @escaping ()->Void) {
+    func getMovies(page: Int, response: @escaping () -> Void) {
         restApi.getMovies(category: "popular", page: page, responseREST: { result in
             let list = result["results"].array
             var listMovies = [Movie]()

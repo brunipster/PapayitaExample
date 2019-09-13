@@ -27,7 +27,7 @@ protocol HomePresenterDelegate: class {
     var view: HomeViewDelegate? {get set}
     var interactor: HomeInteractorDelegate? {get set}
 
-    func updateView(page: Int, respose: @escaping  () -> ())
+    func updateView(page: Int, respose: @escaping  () -> Void)
 
     func fetchFillTableMovies(movies: [Movie])
 }

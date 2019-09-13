@@ -8,20 +8,19 @@
 
 import Foundation
 
-class HomePresenter: HomePresenterDelegate{
-    
+class HomePresenter: HomePresenterDelegate {
+
     weak var view: HomeViewDelegate?
-    
+
     var interactor: HomeInteractorDelegate?
-    
+
     var route: HomeRouteDelegate?
-    
+
     func updateView(page: Int, respose: @escaping () -> Void) {
         interactor?.getMovies(page: page, response: respose)
     }
-    
+
     func fetchFillTableMovies(movies: [Movie]) {
         view?.reloadTableViewListMovie(movies)
     }
-    
 }

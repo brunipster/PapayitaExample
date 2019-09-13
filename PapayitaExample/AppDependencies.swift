@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class AppDependencies {
-    
+
     static func assembleModule() -> UIViewController? {
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let view = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
 

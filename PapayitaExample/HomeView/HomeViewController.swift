@@ -46,7 +46,7 @@ extension HomeViewController: PaginatedTableViewDataSource {
 
 }
 
-extension HomeViewController:PaginatedTableViewDelegate {
+extension HomeViewController: PaginatedTableViewDelegate {
     func loadMore(_ pageNumber: Int, _ pageSize: Int, onSuccess: ((Bool) -> Void)?, onError: ((Error) -> Void)?) {
 
         if pageNumber == 1 { self.listMovies = [Movie]() }
@@ -65,10 +65,9 @@ extension HomeViewController:PaginatedTableViewDelegate {
         cell.lblTitulo.text = item.title
         cell.lblDirector.text = item.originalTitle
         let url = URL(string: "http://image.tmdb.org/t/p/w500\(item.posterPath)")
-        cell.imgView.kf.setImage(with: url, placeholder: UIImage(named: "notFound"), options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, URL) in
-        })
+        cell.imgView.kf.setImage(with: url, placeholder: UIImage(named: "notFound"))
         cell.vwRating.rating = item.popularity*0.1/5
-        cell.lblDirector.text = Array(item.genres).map({"\($0)"}).joined(separator:" , ")
+        cell.lblDirector.text = Array(item.genres).map({"\($0)"}).joined(separator: " , ")
 
         return cell
     }

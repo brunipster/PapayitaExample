@@ -13,13 +13,13 @@ import Kingfisher
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
         navigationController.isNavigationBarHidden = true
         return navigationController
     }()
-    
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -30,6 +30,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.navigationController.viewControllers = [homeViewBuilder!]
         return true
     }
-
 }
 
